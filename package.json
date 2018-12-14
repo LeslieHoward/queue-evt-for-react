@@ -1,14 +1,13 @@
 {
   "author": "leslie",
   "dependencies": {
-    "hoist-non-react-statics": "^3.0.1",
-    "queue-evt": "^0.1.2",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "hoist-non-react-statics": "^3.2.1",
+    "queue-evt": "^0.1.5",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "description": "a subscribe-publish library for react",
   "devDependencies": {
-    "antd": "^3.10.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -22,10 +21,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
-    "css-loader": "^1.0.0",
     "html-webpack-harddisk-plugin": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.3",
@@ -35,7 +32,8 @@
     "react",
     "queue",
     "publish",
-    "subscribe"
+    "subscribe",
+    "message passing"
   ],
   "license": "MIT",
   "main": "dist/index.js",
