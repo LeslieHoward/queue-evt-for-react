@@ -1,32 +1,24 @@
 {
   "author": "leslie",
   "dependencies": {
-    "hoist-non-react-statics": "^3.2.1",
-    "queue-evt": "^0.1.5",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "hoist-non-react-statics": "^3.3.0",
+    "queue-evt": "^0.2.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "description": "a subscribe-publish library for react",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-add-module-exports": "^1.0.0",
-    "babel-plugin-import": "^1.10.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.19",
-    "cross-env": "^5.2.0",
-    "html-webpack-harddisk-plugin": "^1.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "uglifyjs-webpack-plugin": "^1.2.4",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3",
-    "webpack-node-externals": "^1.7.2"
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "cross-env": "^6.0.0",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2"
   },
   "keywords": [
     "react",
@@ -36,16 +28,15 @@
     "message passing"
   ],
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/reactEvt.cjs.js",
+  "module": "dist/reactEvt.esm.js",
   "name": "queue-evt-for-react",
   "repository": {
     "type": "git",
     "url": "https://github.com/LeslieHoward/queue-evt-for-react.git"
   },
   "scripts": {
-    "start": "yarn run dev",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js --progress --colors",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --progress --colors"
+    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js"
   },
   "version": "0.1.0"
 }

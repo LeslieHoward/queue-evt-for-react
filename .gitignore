@@ -6,5 +6,5 @@ yarn-error.log*
 .history/
 package-lock.json
 yarn.lock
-webpack.*.js
-*.html
+rollup.config.js
+.babelrc
