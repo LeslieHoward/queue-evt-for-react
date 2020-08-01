@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import hoistNonReactStatics from 'hoist-non-react-statics';
-import { Signal } from 'queue-evt';
-import utils from './utils';
+import React, { Component } from "react";
+import hoistNonReactStatics from "hoist-non-react-statics";
+import { Signal } from "queue-evt";
+import utils from "./utils";
 
 const signal = new Signal();
 
-const connect = idSet => SourceComponent => {
+const connect = (idSet) => (SourceComponent) => {
   class TargetComponent extends Component {
     constructor(props) {
       super(props);
@@ -14,11 +14,13 @@ const connect = idSet => SourceComponent => {
 
     componentDidMount() {
       if (utils.notNull(this.sourceRef.current) && utils.isArray(idSet)) {
-        idSet.forEach(item => {
+        idSet.forEach((item) => {
           const { action, handler } = item;
           item.token = utils.uuid();
-          if (typeof handler === 'function') {
-            signal.on(action, handler.bind(this.sourceRef.current), { token: item.token });
+          if (typeof handler === "function") {
+            signal.on(action, handler.bind(this.sourceRef.current), {
+              token: item.token,
+            });
           }
         });
       }
@@ -26,7 +28,7 @@ const connect = idSet => SourceComponent => {
 
     componentWillUnmount() {
       if (utils.isArray(idSet)) {
-        idSet.forEach(item => {
+        idSet.forEach((item) => {
           const { action, token } = item;
           signal.remove(action, token);
         });
@@ -37,7 +39,10 @@ const connect = idSet => SourceComponent => {
       return <SourceComponent {...restProps} ref={this.sourceRef} />;
     }
   }
-  const InheritTargetComponent = hoistNonReactStatics(TargetComponent, SourceComponent);
+  const InheritTargetComponent = hoistNonReactStatics(
+    TargetComponent,
+    SourceComponent
+  );
   return React.forwardRef((props, ref) => {
     return <InheritTargetComponent {...props} forwardRef={ref} />;
   });
