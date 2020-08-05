@@ -30,8 +30,9 @@
     "message passing"
   ],
   "license": "MIT",
-  "main": "dist/reactEvt.cjs.js",
-  "module": "dist/reactEvt.esm.js",
+  "main": "dist/react-evt.cjs.js",
+  "module": "dist/react-evt.esm.js",
+  "unpkg": "dist/react-evt.js",
   "name": "queue-evt-for-react",
   "repository": {
     "type": "git",
